@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import android.view.View;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         AppUtils.setActivityTheme(this);
         super.onCreate(savedInstanceState);
+	getWindow().getDecorView().setSystemUiVisibility(
+    View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
+    View.SYSTEM_UI_FLAG_FULLSCREEN |
+    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         setContentView(R.layout.main_activity);
 
         drawerLayout = findViewById(R.id.DrawerLayout);
